@@ -17,21 +17,75 @@ function getComputerChoice() {  // this function will let the computer pick at r
 
 }
 
-let userPick = "Rock" // setting userpick to const for now to control program
+let userPick = prompt ("Take a pick") // setting userpick to const for now to control program
 let cPick = getComputerChoice()
+let result;
 
-function playRound(userPick, getComputerChoice) { // I want to put the userpick (rock), and computerPick(random) against each other
-    if ( cPick === "Rock" && userPick === "Rock") {
+function playRound(userPick, cPick) { // I want to put the userpick (rock), and computerPick(random) against each other
+
+    if ( cPick === userPick ) {
         return ("It's a draw!")
+// seperation made intentionally to differentiate between winning, losing and draw sections.
+
+
     } else if (cPick === "Paper" && userPick === "Rock") {
-        return("You lost! Paper beats rock!")
+        result = ("loser")
+        return("You lost! Paper beats Rock!")
+    } else if (cPick === "Rock" && userPick === "Scissors") {
+        result = ("loser")
+        return("You lost! Rock beats Scissors")
+    } else if (cPick === "Scissors" && userPick === "Paper") {
+        result = ("loser")
+        return("You lost! Scissors beats Paper!")
+// seperation made intentionally to differentiate between winning, losing and draw sections.
+
     } else if ( cPick === "Scissors" && userPick === "Rock") {
+        result = ("winner")
         return ("You won! Rock beats scissors!")
+
+    } else if ( cPick === "Paper" && userPick === "Scissors") {
+        result = ("winner")
+        return ("You won! Scissors beats Paper!")
+
+    } else if ( cPick === "Rock" && userPick === "Paper") {
+        result = ("winner")
+        return ("You won! Paper beats Rock!")
     }
-    } // program finally works with 2 inputs, where it checks for two conditions before returning the result.
+    console.log(result)
+}
+
+    // program finally works with 2 inputs, where it checks for two conditions before returning the result.
 
 
 
-    console.log(userPick)
-    console.log(cPick)
-    console.log(playRound(userPick, getComputerChoice)) //the problem I had was that I didn't put my arguements into the function, now I know :) #very happy.
+
+
+    function game() { // loop for 5 rounds, increase count only in win/lose outcomes, after a score of 5 is reached announce winner.
+        let i = 0
+        let cPoints = 0
+        let uPoints = 0
+        while (i < 5) {
+            userPick
+            playRound(userPick, getComputerChoice)
+            console.log(playRound(userPick, cPick))
+            console.log(userPick)
+            if (result === "winner") {
+                uPoints ++
+            } else if (result === "loser") {
+                cPoints ++
+            }
+            i ++
+            console.log(uPoints)
+            console.log(cPoints)
+
+            if (cPoints === 5) {
+                console.log ("Computer Wins, sorry :(")
+            } else if (uPoints === 5) {
+                console.log ("You win, congrats homey!")
+            }
+
+
+        }
+    }
+
+    game ()
