@@ -56,6 +56,7 @@ while ( cPoints < 5 && uPoints < 5) { //I want the game to end when cPoints or u
     userPick = prompt("Rock, Paper, or Scissors. Choose One") //prompts for user pick everytime.
     getComputerChoice() // runs this function to return cPick
     playRound(userPick, cPick) // this function this the userPick and the computer's pick (cPick) to run. This function returns winner, or loser.
+    console.log(playRound(userPick, cPick)) // displays winner of the round.
     if (result === "winner") { // if playRound returns winner the user's points increases
         uPoints ++
     } else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
