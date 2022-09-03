@@ -48,33 +48,29 @@ function playRound(userPick, cPick) { // I want to put the userpick (rock), and 
     }
     console.log(result)
 }
-
+function game () {
 let uPoints = 0
 let cPoints = 0
 
 while ( cPoints < 5 && uPoints < 5) { //I want the game to end when cPoints or uPoints === 5
-    userPick = prompt("RPS")
-    console.log(userPick)
-    getComputerChoice()
-    console.log(getComputerChoice())
-    console.log(cPick)
-    playRound(userPick, cPick)
-    console.log(playRound(userPick, cPick))
-    if (result === "winner") {
+    userPick = prompt("Rock, Paper, or Scissors. Choose One") //prompts for user pick everytime.
+    getComputerChoice() // runs this function to return cPick
+    playRound(userPick, cPick) // this function this the userPick and the computer's pick (cPick) to run. This function returns winner, or loser.
+    if (result === "winner") { // if playRound returns winner the user's points increases
         uPoints ++
-    } else if (result === "loser") {
+    } else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
         cPoints ++
     }
-
-
-
-
  }
-if (cPoints > uPoints) {
+ // after either the computer or user reach 5 points the loop stops.
+
+if (cPoints > uPoints) { //if after the loop stops cPoints if higher than the computer has won the game.
     console.log ("Sorry, the computer beat you")
-} else if (uPoints > cPoints) {
+} else if (uPoints > cPoints) { // if after the loop stops and uPoints is higher than the user has won.
     console.log ("You did it! You beat the computer at RPS")
 }
 
-console.log(cPoints)
-console.log(uPoints) //game complete :)
+//game complete :)
+}
+
+game ()
