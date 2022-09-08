@@ -48,83 +48,19 @@ function playRound(userPick, cPick) { // I want to put the userpick (rock), and 
     }
     console.log(result)
 }
-
-let userPick;
-
-function getUserChoice() {
-let counter = 0;
-let counter2 = 0;
-let counter3 = 0;
-
-const rock = document.querySelector(".rock");
-rock.addEventListener('click', () => {
-  counter ++
-//   console.log(`rock: ${counter}`)
-  userPick = "Rock"
-//   console.log(userPick)
-    getComputerChoice();
-  playRound(userPick,cPick);
-  const results = document.querySelector('.results');
-
-    const roundResult = document.createElement('div');
-    roundResult.classList.add('roundResult');
-    roundResult.textContent = playRound(userPick,cPick);
-    results.appendChild(roundResult);
-
-
-});
-const paper = document.querySelector(".paper");
-paper.addEventListener('click', () => {
-  counter2 ++
-  userPick = "Paper"
-//   console.log(`paper: ${counter2}`)
-//   console.log(userPick)
-    getComputerChoice()
-  playRound(userPick,cPick);
-  const results = document.querySelector('.results');
-
-    const roundResult = document.createElement('div');
-    roundResult.classList.add('roundResult');
-    roundResult.textContent = playRound(userPick,cPick);
-    results.appendChild(roundResult);
-
-});
-const scis = document.querySelector(".scis");
-scis.addEventListener('click', () => {
-  counter3 ++
-//   console.log(`Scissors: ${counter3}`)
-  userPick = "Scissors"
-//   console.log(userPick)
-  getComputerChoice()
-//   console.log(getComputerChoice())
-  playRound(userPick,cPick);
-  const results = document.querySelector('.results');
-    const roundResult = document.createElement('div');
-    roundResult.classList.add('roundResult');
-    roundResult.textContent = playRound(userPick,cPick);
-    results.appendChild(roundResult);
-
-});
-}
-
-getUserChoice()
-
-
-
-
-
+userPick = "Rock"
+getComputerChoice()
+console.log(playRound(userPick, cPick))
 
 // function game () {
 // let uPoints = 0
 // let cPoints = 0
-// let c = 0;
 
-// while ( c < 5) { //I want the game to end when cPoints or uPoints === 5
-//     c++
-
+// while ( cPoints < 5 && uPoints < 5) { //I want the game to end when cPoints or uPoints === 5
+//     userPick = "Rock" // runs function to get userchoice when btn clicked
 //     getComputerChoice() // runs this function to return cPick
-//     getUserChoice() // this function this the userPick and the computer's pick (cPick) to run. This function returns winner, or loser.
-//      // displays winner of the round.
+//     playRound(userPick, cPick) // this function this the userPick and the computer's pick (cPick) to run. This function returns winner, or loser.
+//     console.log(playRound(userPick, cPick)) // displays winner of the round.
 //     if (result === "winner") { // if playRound returns winner the user's points increases
 //         uPoints ++
 //     } else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
