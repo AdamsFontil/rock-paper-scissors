@@ -45,28 +45,23 @@ function playRound(userPick, cPick) { // I want to put the userpick (rock), and 
 }
 
 function game () {
-    let uPoints = 0
-    let cPoints = 0
-    let c = 0;
-
-    while ( cPoints < 5 && uPoints < 5) { //I want the game to end when cPoints or uPoints === 5
-        if (result === "winner") { // if playRound returns winner the user's points increases
-            uPoints ++
-            console.log(uPoints)
-
-        } else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
-            cPoints ++
-            console.log(cPoints)
-        }
-     }
-     // after either the computer or user reach 5 points the loop stops.
-
-    if (cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if higher than the computer has won the game.
+    if (result === "winner") { // if playRound returns winner the user's points increases
+    uPoints ++
+    console.log(`your points : ${uPoints}`)
+} else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
+    cPoints ++
+    console.log(`pc points : ${cPoints}`)
+}
+if ( cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if higher than the computer has won the game.
         console.log ("Sorry, the computer beat you")
+        cPoints = 0;
+        uPoints = 0;
     } else if (uPoints === 5 && uPoints > cPoints) { // if after the loop stops and uPoints is higher than the user has won.
         console.log ("You did it! You beat the computer at RPS")
+        cPoints = 0;
+        uPoints = 0;
     }
-    }
+}
 
 
 let userPick;
@@ -87,6 +82,7 @@ rock.addEventListener('click', () => {
   console.log(getComputerChoice())
   playRound(userPick,cPick);
 //   console.log(playRound(userPick,cPick));
+    game()
 });
 const paper = document.querySelector(".paper");
 paper.addEventListener('click', () => {
@@ -98,6 +94,7 @@ paper.addEventListener('click', () => {
   console.log(getComputerChoice())
   playRound(userPick,cPick);
 //   console.log(playRound(userPick,cPick));
+    game()
 });
 
 const scis = document.querySelector(".scis");
@@ -111,22 +108,6 @@ scis.addEventListener('click', () => {
   playRound(userPick,cPick);
   console.log(playRound(userPick,cPick));
     console.log(result)
-
-if (result === "winner") { // if playRound returns winner the user's points increases
-    uPoints ++
-    console.log(`your points : ${uPoints}`)
-} else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
-    cPoints ++
-    console.log(`pc points : ${cPoints}`)
-}
-if ( cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if higher than the computer has won the game.
-        console.log ("Sorry, the computer beat you")
-        cPoints = 0;
-        uPoints = 0;
-    } else if (uPoints === 5 && uPoints > cPoints) { // if after the loop stops and uPoints is higher than the user has won.
-        console.log ("You did it! You beat the computer at RPS")
-        cPoints = 0;
-        uPoints = 0;
-    }
+    game()
 
 });
