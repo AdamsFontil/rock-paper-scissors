@@ -19,6 +19,7 @@ let result;
 function playRound(userPick, cPick) { // I want to put the userpick (rock), and computerPick(random) against each other
 
     if ( cPick === userPick ) {
+        result = ("Draw")
         return ("It's a draw!")
 // seperation made intentionally to differentiate between winning, losing and draw sections.
 
@@ -46,7 +47,6 @@ function playRound(userPick, cPick) { // I want to put the userpick (rock), and 
         result = ("winner")
         return ("You won! Paper beats Rock!")
     }
-    console.log(result)
 }
 
 let userPick;
@@ -55,6 +55,8 @@ function getUserChoice() {
 let counter = 0;
 let counter2 = 0;
 let counter3 = 0;
+let uPoints = 0;
+let cPoints = 0;
 
 const rock = document.querySelector(".rock");
 rock.addEventListener('click', () => {
@@ -92,12 +94,36 @@ paper.addEventListener('click', () => {
 const scis = document.querySelector(".scis");
 scis.addEventListener('click', () => {
   counter3 ++
-//   console.log(`Scissors: ${counter3}`)
   userPick = "Scissors"
-//   console.log(userPick)
   getComputerChoice()
-//   console.log(getComputerChoice())
   playRound(userPick,cPick);
+  if (result === "winner") { // if playRound returns winner the user's points increases
+            uPoints ++
+            const results = document.querySelector('.results')
+            const uScore = document.createElement('p')
+            uScore.textContent = (`Your score: ${uPoints}`)
+            results.appendChild(uScore)
+
+        } else if (result === "loser") { // if the playRound function returns loser than the computer's points increases
+            cPoints ++
+            const results = document.querySelector('.results')
+            const uScore = document.createElement('p')
+            uScore.textContent = (`Computer's score: ${cPoints}`)
+            results.appendChild(uScore)
+        }
+        if (cPoints > uPoints && cPoints >= 5) { //if after the loop stops cPoints if higher than the computer has won the game.
+            const results = document.querySelector('.results')
+            const uLost = document.createElement('p')
+            uLost.textContent = ("Sorry, the computer beat you")
+            results.appendChild(uLost)
+} else if (uPoints > cPoints && uPoints >= 5) { // if after the loop stops and uPoints is higher than the user has won.
+            const results = document.querySelector('.results')
+            const uWon = document.createElement('p')
+            uWon.textContent = ("You did it! You beat the computer at RPS")
+            results.appendChild(uWon)
+
+}
+
   const results = document.querySelector('.results');
     const roundResult = document.createElement('div');
     roundResult.classList.add('roundResult');
