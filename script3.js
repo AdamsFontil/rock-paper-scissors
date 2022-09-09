@@ -48,9 +48,9 @@ function playRound(userPick, cPick) { // I want to put the userpick (rock), and 
     }
     console.log(result)
 }
-userPick = "Rock"
-getComputerChoice()
-console.log(playRound(userPick, cPick))
+
+
+playRound(userPick, c)
 
 // function game () {
 // let uPoints = 0
