@@ -54,10 +54,14 @@ function game () {
 }
 if ( cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if higher than the computer has won the game.
         console.log ("Sorry, the computer beat you")
+        const result = document.querySelector('.result')
+        result. textContent = ('Sorry, the computer beat you.')
         cPoints = 0;
         uPoints = 0;
     } else if (uPoints === 5 && uPoints > cPoints) { // if after the loop stops and uPoints is higher than the user has won.
         console.log ("You did it! You beat the computer at RPS")
+        const result = document.querySelector('.result')
+        result. textContent = ('You did it! You beat the computer at RPS.')
         cPoints = 0;
         uPoints = 0;
     }
@@ -87,6 +91,8 @@ rock.addEventListener('click', () => {
   console.log(getComputerChoice())
   playRound(userPick,cPick);
 //   console.log(playRound(userPick,cPick));
+    const result = document.querySelector('.result')
+    result.textContent = (playRound(userPick, cPick))
     game()
 });
 const paper = document.querySelector(".paper");
@@ -99,6 +105,8 @@ paper.addEventListener('click', () => {
   console.log(getComputerChoice())
   playRound(userPick,cPick);
 //   console.log(playRound(userPick,cPick));
+    const result = document.querySelector('.result')
+    result.textContent = (playRound(userPick, cPick))
     game()
 });
 
@@ -111,8 +119,9 @@ scis.addEventListener('click', () => {
 //   console.log(`Scissors: ${counter3}`)
 //   console.log(userPick)
   playRound(userPick,cPick);
-  console.log(playRound(userPick,cPick));
-    console.log(result)
+//   console.log(playRound(userPick,cPick));
+    const result = document.querySelector('.result')
+    result.textContent = (playRound(userPick, cPick))
     game()
 
 });
