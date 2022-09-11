@@ -61,6 +61,11 @@ if ( cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if 
         cPoints = 0;
         uPoints = 0;
     }
+    const uScore = document.querySelector('.uScore')
+    uScore.textContent = (`Your score: ${uPoints}`)
+    const cScore = document.querySelector('.cScore')
+    cScore.textContent = (`Your score: ${cPoints}`)
+
 }
 
 
