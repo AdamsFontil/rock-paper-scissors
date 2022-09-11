@@ -17,7 +17,6 @@ function playRound(userPick, cPick) { // I want to put the userpick (rock), and 
         return ("It's a draw!")
 // seperation made intentionally to differentiate between winning, losing and draw sections.
 
-
     } else if (cPick === "Paper" && userPick === "Rock") {
         roundResult = ("loser")
         return("You lost! Paper beats Rock!")
@@ -66,7 +65,7 @@ if ( cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if 
 
 
 let userPick;
-let uPoints = 0;
+let uPoints = 0; // uPoints initialised outside of loop to so that those points are incremented.
 let cPoints = 0;
 const result = document.querySelector('.result')
 
