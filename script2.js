@@ -8,12 +8,13 @@ function getComputerChoice() {  // this function will let the computer pick at r
         cPick = "Scissors"
     }
     return cPick  // this what this function ultimately returns, one choice rock, paper, or scissors.
-
 }
+
 let roundResult;
 
-function playRound(userPick, cPick) { // I want to put the userpick (rock), and computerPick(random) against each other
+function playRound(userPick, cPick) { // I want to put the userpick, and computerPick(random) against each other
     if ( cPick === userPick ) {
+        roundResult = null
         return ("It's a draw!")
 // seperation made intentionally to differentiate between winning, losing and draw sections.
 
@@ -47,6 +48,8 @@ function game () {
     uPoints ++
 } else if (roundResult === "loser") { // if the playRound function returns loser than the computer's points increases
     cPoints ++
+} else {
+    console.log('no change')
 }
 if ( cPoints === 5 && cPoints > uPoints) { //if after the loop stops cPoints if higher than the computer has won the game.
         result. textContent = ('Sorry, the computer beat you.')
